@@ -6,6 +6,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Role } from '../interfaces/roles.enum';
+import { Exclude } from 'class-transformer';
 
 @Entity()
 export class User {
@@ -24,6 +25,7 @@ export class User {
   @Column({ enum: Role, type: 'enum', default: Role.USER })
   role: Role;
 
+  @Exclude()
   @Column({ type: 'varchar' })
   password: string;
 
@@ -32,4 +34,8 @@ export class User {
 
   @UpdateDateColumn({ type: 'timestamp' })
   updated_at: Date;
+
+  constructor(partial: Partial<User>) {
+    Object.assign(this, partial);
+  }
 }
