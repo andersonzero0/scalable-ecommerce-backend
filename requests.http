@@ -1,0 +1,32 @@
+### Criar usuário
+POST http://localhost:3000/
+Content-Type: application/json
+
+{
+    "first_name": "Admin",
+    "last_name": "0",
+    "email": "admin@ecommerce.local",
+    "password": "supersecret"
+}
+
+### Listar todos os usuario
+GET http://localhost:3000/
+Content-Type: application/json
+
+### Listar um usuario
+GET http://localhost:3000/{id}
+Content-Type: application/json
+
+### Atualizar um usuario
+PUT http://localhost:3000/{id}
+Content-Type: application/json
+
+{
+    "first_name": "Admin",
+    "last_name": "0",
+    "email": ""
+}
+
+### Deletar um usuario
+DELETE http://localhost:3000/{id}
+Content-Type: application/json
